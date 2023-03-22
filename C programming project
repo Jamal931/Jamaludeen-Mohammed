@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+float balance=1900076.5;
+int authenticate(int pin);
+float requestAmount(void);
+void deposit(float amount);
+void withdraw(float amount);
+void transfer(float amount);
+int authenticate(int pin) {
+    if (pin == 1309) {  
+        return 1;
+    } else {
+        return 0;
+    }
+}
+float requestAmount(void) {
+    float amount;
+    printf("Enter amount: ");
+    scanf("%f", &amount);
+    return amount;
+}
+void deposit(float amount) {
+    balance += amount;
+    printf("Deposit successful. New balance: %g\n", balance);
+}
+void withdraw(float amount) {
+    if (balance < amount) {
+        printf("Insufficient balance\n");
+    } else {
+        balance -= amount;
+        printf("Withdrawal successful. New balance: %g\n", balance);
+    }
+}
+void transfer(float amount) {
+    int recipient_account_number;
+    printf("Enter recipient's account number: ");
+    scanf("%d", &recipient_account_number);
+    if (balance < amount) {
+        printf("Insufficient balance\n");
+    } else {
+        balance -= amount;
+        printf("Transfer successful. New balance; %g\n", balance);
+    }
+}
+
+
+int main(){
+start:
+printf("WELCOME TO ABC BANK\nEnter your four digit pin\n");
+int tries = 0;
+int pin=0;
+scanf("%d", &pin);
+menu:
+if(authenticate(pin) && tries < 4){
+int menu_item;
+printf("Select an option\n1. Check Balance\n2. Withdrawal\n3.Deposit\n4. Transfer\n");
+scanf("%d", &menu_item);
+switch(menu_item){
+case 1: printf("%g\n", balance);
+break;
+case 2: withdraw(requestAmount());
+break;
+case 3: deposit(requestAmount());
+break;
+case 4: transfer(requestAmount());
+}
+}
+else{
+++tries;
+printf("Invalid pin after %d tries\n", tries);
+goto start;
+}
+int response;
+printf("Would you like to perform another transaction?\n1. Yes\n2.No\n");
+scanf("%d", &response);
+if(response == 1){goto menu;}
+printf("Thank you for banking with us\n");
+return 0;
+}# Jamaludeen-Mohammed

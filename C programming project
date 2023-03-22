@@ -76,4 +76,4 @@ scanf("%d", &response);
 if(response == 1){goto menu;}
 printf("Thank you for banking with us\n");
 return 0;
-}# Jamaludeen-Mohammed
+}

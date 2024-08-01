@@ -1,4 +1,4 @@
-# Jamaludeen-Mohammed
+CWA calculator
 # Cumulated Weighted Average Calculator (C++ OOP)
 
 This repository contains a Cumulated Weighted Average Calculator implemented in C++ using Object-Oriented Programming (OOP) principles. This program allows you to calculate the weighted average of a set of values with their respective weights.
